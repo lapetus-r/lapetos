@@ -1,15 +1,13 @@
-#
-#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━#
-#			  														  lapetOS			   													  #
-#				 						 [ General Purpose Kernel for Embedded System ]									  #
-#			  																   																	  #
-#			  							  					SangMyung University									   					  #
-#			  							  				  Computer Science Major												      #
-#			  																				   													  #
-#					  					  Made By: Yoo Sang-Gi / Park il-kwon, 2011-2012							  	  #
-#			  											 	 File Name: Makefile	 													  #
-#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━#
-#
+#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
+#								lapetOS									┃
+#			 [ General Purpose Kernel for Embedded System ]				┃
+#			  															┃
+#			  			  SangMyung University							┃
+#			  			 Computer Science Major							┃
+#			  															┃
+#			 Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012				┃
+#			  			  File Name: Makefile			  	 			┃
+#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
 
 CC = arm-linux-gcc
 LD = arm-linux-ld
@@ -50,4 +48,3 @@ all: $(CFILES) $(HFILES)
 clean:
 	rm lapetOS_elf
 	rm lapetOS_img
-
