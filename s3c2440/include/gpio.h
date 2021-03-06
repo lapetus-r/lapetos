@@ -1,17 +1,3 @@
-/*
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-¦­			  														  lapetOS			   													   ¦­
-¦­				 						 [ General Purpose Kernel for Embedded System ]									   ¦­
-¦­			  																   																	   ¦­
-¦­			  							  					SangMyung University									   					   ¦­
-¦­			  							  				  Computer Science Major												       ¦­
-¦­			  																				   													   ¦­
-¦­					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ¦­
-¦­			  											 	 File Name: gpio.h		 													   ¦­
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-*/
-
-
 #ifndef _GPIO_HEADER_
 #define _GPIO_HEADER_
 
@@ -23,8 +9,7 @@
 #define	LED_OFF			0
 #define	LED_ON			1
 
-void  GPIOInit(void); 				// GPIO »óÅÂ ÃÊ±âÈ­
-void  GPIO_SetLED( int LedIndex, int value ); 	// GPIO ¿¡ ¿¬°áµÈ LED¸¦ Á¦¾îÇÑ´Ù.
+void  GPIOInit(void); 				// GPIO ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
+void  GPIO_SetLED( int LedIndex, int value ); 	// GPIO ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ LEDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 
 #endif //_GPIO_HEADER_
-

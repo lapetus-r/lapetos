@@ -1,31 +1,16 @@
-/*
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-¦­			  														  lapetOS			   													   ¦­
-¦­				 						 [ General Purpose Kernel for Embedded System ]									   ¦­
-¦­			  																   																	   ¦­
-¦­			  							  					SangMyung University									   					   ¦­
-¦­			  							  				  Computer Science Major												       ¦­
-¦­			  																				   													   ¦­
-¦­					  					  Made by: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ¦­
-¦­			  											 	   File Name: gpio.c		 												   ¦­
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-*/
-
 #include <s3c2440.h>
 #include <gpio.h>
 
-
-// ¼³¸í : GPIO ¸¦ ÃÊ±âÈ­ ÇÑ´Ù.
+// ï¿½ï¿½ï¿½ï¿½ : GPIO ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ñ´ï¿½.
 void GPIOInit(void)
 {
 //	unsigned long val;
 
-	// i2c °ü·Ã Æ÷Æ®¸¦ ÃÊ±âÈ­ ÇÑ´Ù.
+	// i2c ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ñ´ï¿½.
         GPECON |= ( 0x2 <<30 | 0x2 << 28 );
 }
 
-
-// ¼³¸í : GPIO ¿¡ ¿¬°áµÈ LED¸¦ ¼³Á¤ÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : GPIO ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ LEDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 void  GPIO_SetLED( int LedIndex, int value )
 {
 	if( value )
@@ -51,4 +36,3 @@ void  GPIO_SetLED( int LedIndex, int value )
 		}
 	}
 }
-

@@ -1,30 +1,16 @@
-/*
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-¦­			  														  lapetOS			   													   ¦­
-¦­				 						 [ General Purpose Kernel for Embedded System ]									   ¦­
-¦­			  																   																	   ¦­
-¦­			  							  					SangMyung University									   					   ¦­
-¦­			  							  				  Computer Science Major												       ¦­
-¦­			  																				   													   ¦­
-¦­					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ¦­
-¦­			  											 	 File Name: time.h				 											   ¦­
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-*/
-
 #ifndef _TIME_HEADER_
 #define _TIME_HEADER_
 
 #define TICKS_PER_SECOND	(PCLK/(255+1)/16)
 			
 void			SetWatchdog( int msec );
-void			TimerInit(void);             	// Å¸ÀÌ¸Ó ÃÊ±âÈ­ 
-unsigned int	TimerGetTime(void);       		// 1/TICKS_PER_SECOND ÀÇ ½Ã°£ °ªÀ» ¹ÝÈ¯ÇÑ´Ù. 
-void			TimerConfigTime(void);			// Mac Address ¼³Á¤À» À§ÇÑ Setup ¸í·É¿¡¼­ÀÇ ½Ã°£ ÃÊ±âÈ­
-void			msleep(unsigned int msec);   	// ¹Ð¸®¼¼ÄÁµå ´ÜÀ§½Ã°£µ¿¾È ´ë±â ÇÑ´Ù. 
+void			TimerInit(void);             	// Å¸ï¿½Ì¸ï¿½ ï¿½Ê±ï¿½È­ 
+unsigned int	TimerGetTime(void);       		// 1/TICKS_PER_SECOND ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½. 
+void			TimerConfigTime(void);			// Mac Address ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Setup ï¿½ï¿½ï¿½É¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½Ê±ï¿½È­
+void			msleep(unsigned int msec);   	// ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½. 
 
 extern void		ReloadTimer( unsigned char bTimer, unsigned int msec);
 extern int		TimeOverflow( unsigned char bTimer );
 extern void		FreeTimer( unsigned char bTimer );
 
 #endif //_TIME_HEADER_
-

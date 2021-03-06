@@ -1,16 +1,3 @@
-/*
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-¦­			  														  lapetOS			   													   ¦­
-¦­				 						 [ General Purpose Kernel for Embedded System ]									   ¦­
-¦­			  																   																	   ¦­
-¦­			  							  					SangMyung University									   					   ¦­
-¦­			  							  				  Computer Science Major												       ¦­
-¦­			  																				   													   ¦­
-¦­					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ¦­
-¦­			  											 	 File Name: lcd.h			 												   ¦­
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-*/
-
 #ifndef _LCD_HEADER_
 #define _LCD_HEADER_
 
@@ -69,7 +56,7 @@
   #define LPCSEL_VALUE        0xF84		// LPC3600 Disable (0x06 ?)
 #endif
 
-// windows style BMP Çì´õ
+// windows style BMP ï¿½ï¿½ï¿½
 
 typedef struct
 {
@@ -95,4 +82,3 @@ typedef struct
 } __attribute__ ((packed)) TBMPHEAD;
 
 #endif
-

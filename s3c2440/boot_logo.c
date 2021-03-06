@@ -1,15 +1,3 @@
-/*
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-¦­			  														  lapetOS			   													   ¦­
-¦­				 						 [ General Purpose Kernel for Embedded System ]									   ¦­
-¦­			  																   																	   ¦­
-¦­			  							  					SangMyung University									   					   ¦­
-¦­			  							  				  Computer Science Major												       ¦­
-¦­			  																				   													   ¦­
-¦­					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ¦­
-¦­			  											 	 File Name:  boot_logo.c													   ¦­
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-*/
 #include <include.h>
 #define LCD_REG_INFO	0
 #define CopyTo_SDRAM_BootLogo
@@ -146,7 +134,7 @@ static Word ColorBottomBars[4][8]=
 };
 
 
-//  ¼³ ¸í : µð¹ö±ë½Ã È­¸é¿¡ ColorBar¸¦ ±×¸°´Ù.
+//  ï¿½ï¿½ ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½é¿¡ ColorBarï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½.
 int DrawColorBars(int iWidth, int iHeight, int bpp, char *FrameBuffer)
 {
     int 	x,y,last,color;
@@ -331,13 +319,13 @@ int DrawColorBars(int iWidth, int iHeight, int bpp, char *FrameBuffer)
     return(0);
 }
 
-//  ¼³ ¸í : RGB °ªÀ» 16 ºñÆ® 565 Æ÷¸Ë µ¥ÀÌÅ¸·Î ¹Ù²Û´Ù.
+//  ï¿½ï¿½ ï¿½ï¿½ : RGB ï¿½ï¿½ï¿½ï¿½ 16 ï¿½ï¿½Æ® 565 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ù²Û´ï¿½.
 Word16	RGB2PIXEL565( int r, int g, int b )
 {
 	return ((((r) & 0xF8) << 8) | (((g) & 0xFC ) << 3) | (((b) & 0xF8 ) >> 3));
 }
 
-//  ¼³ ¸í : SDRAM ¸Þ¸ð¸®¿¡ º¹»çµÈ BMP ÀÌ¹ÌÁö¸¦ Ç¥ÃâÇÑ´Ù.
+//  ï¿½ï¿½ ï¿½ï¿½ : SDRAM ï¿½Þ¸ð¸®¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ BMP ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ñ´ï¿½.
 
 Word32 ImageDisplay( unsigned int src, unsigned int dst )
 {
@@ -353,7 +341,7 @@ Word32 ImageDisplay( unsigned int src, unsigned int dst )
 	LineByteSize = pBmpHeader->biWidth * 3;
 	LineByteSize = (LineByteSize+3) & ( ~3 );
 
-	// BMP ÀÌ¹ÌÁö Á¤º¸¸¦ Ç¥ÃâÇÑ´Ù.
+	// BMP ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ñ´ï¿½.
 	printf("  File  Size  -  %d Bytes\n", pBmpHeader->bfSize);
 	printf("  Image Size  -  %d x %d\n" , pBmpHeader->biWidth, pBmpHeader->biHeight);
 	printf("\n");
@@ -370,7 +358,7 @@ Word32 ImageDisplay( unsigned int src, unsigned int dst )
 
 		for( LoopX = 0; LoopX <= pBmpHeader->biWidth-1; LoopX++ )
 		{
-			// RGB °ªÀ» 16 ºñÆ® 565 Æ÷¸Ë µ¥ÀÌÅ¸·Î ¹Ù²Û´Ù.
+			// RGB ï¿½ï¿½ï¿½ï¿½ 16 ï¿½ï¿½Æ® 565 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ù²Û´ï¿½.
 			*pSetBitmap = RGB2PIXEL565( pBitmapDataRGB[2], pBitmapDataRGB[1], pBitmapDataRGB[0] );
 
 			pSetBitmap++;
@@ -409,7 +397,7 @@ Word32 ImageDisplay( unsigned int src, unsigned int dst )
 	return 0;
 }
 
-// ¼³¸í : TFT-LCD ÃÊ±âÈ­ ¹× ºÎÆ®·Î°í¸¦ È­¸é¿¡ Ãâ·ÂÇÑ´Ù.
+// ï¿½ï¿½ï¿½ï¿½ : TFT-LCD ï¿½Ê±ï¿½È­ ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Î°ï¿½ï¿½ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 
 void lcd_init(void)
 {
@@ -469,15 +457,15 @@ void lcd_init(void)
 
 
 #if LCD_REG_INFO
-	// µð¹ö±ëÀ» À§ÇÑ È­¸é ÀÌ´Ù. 
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½Ì´ï¿½. 
 	DrawColorBars(LCD_XRES, LCD_YRES, LCD_BPP, (char *)FrameBuffer);
 #else
-	// ÇÃ·¡½Ã¿¡ ÀÖ´Â BMP ÀÌ¹ÌÁö µ¥ÀÌÅ¸¸¦ SDRAM ¸Þ¸ð¸®·Î º¹»çÇÑ´Ù.
+	// ï¿½Ã·ï¿½ï¿½Ã¿ï¿½ ï¿½Ö´ï¿½ BMP ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ SDRAM ï¿½Þ¸ð¸®·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	printf("Copy Init Image .....\n" );
 	iRet = CopyTo_SDRAM_BootLogo( DEFAULT_RAM_WORK_START  );
 	if( iRet )
 	{
-		// ¸Þ·Î¸®¿¡ ÀÖ´Â ÀÌ¹ÌÁö µ¥ÀÌÅ¸¸¦ Æ¯Á¤ ¸Þ¸ð¸®·Î º¹»çÇÑ´Ù.
+		// ï¿½Þ·Î¸ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½Þ¸ð¸®·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	    	if ( ImageDisplay( S3C24X0_FB_BASE, DEFAULT_RAM_WORK_START ) )
 	    	{
             		printf("   Fail!!! \n" );
@@ -489,4 +477,3 @@ void lcd_init(void)
 
 	return;
 }
-

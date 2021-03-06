@@ -1,18 +1,6 @@
-/*
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-¦­			  														  lapetOS			   													   ¦­
-¦­				 						 [ General Purpose Kernel for Embedded System ]									   ¦­
-¦­			  																   																	   ¦­
-¦­			  							  					SangMyung University									   					   ¦­
-¦­			  							  				  Computer Science Major												       ¦­
-¦­			  																				   													   ¦­
-¦­					  					  Made by: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ¦­
-¦­			  											 	   File Name: time.c		 												   ¦­
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-*/
 #include <time.h>
 #include <s3c2440.h>
-// ¼³¸í : ¿öÄ¡µ¶ ¼³Á¤
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 void	SetWatchdog( int msec )
 {
@@ -20,7 +8,7 @@ void	SetWatchdog( int msec )
 		WTCNT  = (TICKS_PER_SECOND*msec)/1000;
 }
 
-// ¼³¸í : Å¸ÀÌ¸Ó¸¦ ÃÊ±âÈ­ ÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : Å¸ï¿½Ì¸Ó¸ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ñ´ï¿½. 
 
 void TimerInit(void)
 {
@@ -49,31 +37,31 @@ void TimerInit(void)
     		TCNTB4 = TICKS_PER_SECOND-1;
 		TCON   = 0x00000000;
 
-		// Timer-0¸¦ ÃÊ±âÈ­ ÇÑ´Ù.
+		// Timer-0ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ñ´ï¿½.
 		TCON  = (TCON_TM0_UPDATE_MANUAL);	// Manual update
 	        TCON  = (TCON & 0xFFFFFFF0) | (TCON_TM0_ONE_SHOT | TCON_TM0_STOP);
 
-		// WATCHDOG Timer¸¦ ÃÊ±âÈ­ ÇÑ´Ù.		
+		// WATCHDOG Timerï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ñ´ï¿½.		
 		WTCON = WTCON_VALUE;    
 }
 
-// ¼³¸í : ºÎÆ®·Î´õ È¯°æ ¼³Á¤À» À§ÇÑ Å¸ÀÌ¸Ó ÃÊ±âÈ­
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Æ®ï¿½Î´ï¿½ È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ì¸ï¿½ ï¿½Ê±ï¿½È­
 
 void	TimerConfigTime(void)
 {  
-		// Timer-1¸¦ ÃÊ±âÈ­ ÇÑ´Ù.
+		// Timer-1ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ñ´ï¿½.
 		TCON  = (TCON_TM1_UPDATE_MANUAL);
         TCON  = (TCON & 0xFFFFF0FF) | (TCON_TM1_AUTO_RELOAD | TCON_TM1_START);
 }
 
-// ¼³¸í : Å¸ÀÌ¸ÓÀÇ °ªÀ» ¾ò¾î ¿Â´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : Å¸ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Â´ï¿½. 
 
 unsigned int  TimerGetTime(void)
 {
 		return ( ( unsigned int ) ( 65536 - ( TCNTO1 & 0xffff ) ) );
 }
 
-// ¼³¸í : ¹Ð¸® ¼¼ÄÁµå µ¿¾È Áö¿¬À» °¤´Â´Ù.
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Ð¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 
 void 	msleep(unsigned int msec)
 {
@@ -83,11 +71,11 @@ void 	msleep(unsigned int msec)
         FreeTimer( 0 );
 }
 
-// ¼³¸í : ´Ù¿îÄ«¿îÅÍÀÇ °ªÀ» ´Ù½Ã ºÒ·¯¿Â´Ù.
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Ù¿ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Ò·ï¿½ï¿½Â´ï¿½.
 
 void    ReloadTimer( unsigned char bTimer, unsigned int msec )
 {
-		// Å¸ÀÌ¸Ó ¿À¹öÇÃ·Î¿ì°¡ ¹ß»ýÇÒ Æ½
+		// Å¸ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·Î¿ì°¡ ï¿½ß»ï¿½ï¿½ï¿½ Æ½
         switch( bTimer )
         {
         case 0 :
@@ -121,7 +109,7 @@ void    ReloadTimer( unsigned char bTimer, unsigned int msec )
 
 }
 
-// ¼³¸í : ¿À¹öÇÃ·Î¿ì Ã¼Å©
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½Ã·Î¿ï¿½ Ã¼Å©
 
 int     TimeOverflow( unsigned char bTimer )
 {
@@ -150,11 +138,11 @@ int     TimeOverflow( unsigned char bTimer )
 		return reg;
 }
 
-// ¼³¸í : Å¸ÀÌ¸Ó¸¦ Á¤Áö½ÃÅ°°í Å¸ÀÌ¸Ó ¿À¹öÇÃ·Î¿ì ¹ß»ý ºñÆ®¸¦ Å¬¸®¾î½ÃÅ²´Ù.
+// ï¿½ï¿½ï¿½ï¿½ : Å¸ï¿½Ì¸Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ Å¸ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·Î¿ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
 
 void    FreeTimer( unsigned char bTimer )
 {
-        // Å¸ÀÌ¸Ó ¿À¹öÇÃ·Î¿ì°¡ Å¬¸®¾î
+        // Å¸ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·Î¿ì°¡ Å¬ï¿½ï¿½ï¿½ï¿½
         switch( bTimer )
         {
         case 0 :
@@ -179,4 +167,3 @@ void    FreeTimer( unsigned char bTimer )
         	break;
         }
 }
-

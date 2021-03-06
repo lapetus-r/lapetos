@@ -1,16 +1,3 @@
-/*
-朱收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收朱
-早			  														  lapetOS			   													   早
-早				 						 [ General Purpose Kernel for Embedded System ]									   早
-早			  																   																	   早
-早			  							  					SangMyung University									   					   早
-早			  							  				  Computer Science Major												       早
-早			  																				   													   早
-早					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   早
-早			  											 	 File Name: string.h			 											   早
-朱收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收朱
-*/
-
 #ifndef _STRING_HEADER_
 #define _STRING_HEADER_
 
@@ -43,4 +30,3 @@ extern void UpperStr( char *Str );
 extern void LowerStr( char *Str );
 
 #endif // _STRING_HEADER_
-

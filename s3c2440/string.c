@@ -1,19 +1,6 @@
-/*
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-¦­			  														  lapetOS			   													   ¦­
-¦­				 						 [ General Purpose Kernel for Embedded System ]									   ¦­
-¦­			  																   																	   ¦­
-¦­			  							  					SangMyung University									   					   ¦­
-¦­			  							  				  Computer Science Major												       ¦­
-¦­			  																				   													   ¦­
-¦­					  					  Made by: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ¦­
-¦­			  											 	   File Name: string.c		 												   ¦­
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-*/
-
 #include <stdio.h>
 
-// ¼³¸í : ´ë¼Ò¹®ÀÚ¸¦ °°Àº °ÍÀ¸·Î Ãë±ÞÇÑ ¹®ÀÚ¿­ ºñ±³ 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ò¹ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ 
 
 int strnicmp(const char *s1, const char *s2, size_t len)
 {
@@ -41,7 +28,7 @@ int strnicmp(const char *s1, const char *s2, size_t len)
 
 char * ___strtok;
 
-// ¼³¸í : ¹®ÀÚ¿­ º¹»ç 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 
 char * strcpy(char * dest,const char *src)
 {
@@ -52,7 +39,7 @@ char * strcpy(char * dest,const char *src)
 	return tmp;
 }
 
-// ¼³¸í : ¹®ÀÚ¿­ º¹»ç 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 
 char * strncpy(char * dest,const char *src,size_t count)
 {
@@ -64,7 +51,7 @@ char * strncpy(char * dest,const char *src,size_t count)
 	return tmp;
 }
 
-// ¼³¸í : ¹®ÀÚ¿­ Ãß°¡ 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ß°ï¿½ 
 
 char * strcat(char * dest, const char * src)
 {
@@ -78,7 +65,7 @@ char * strcat(char * dest, const char * src)
 	return tmp;
 }
 
-// ¼³¸í : ¹®ÀÚ¿­ Ãß°¡ 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ß°ï¿½ 
 
 char * strncat(char *dest, const char *src, size_t count)
 {
@@ -98,7 +85,7 @@ char * strncat(char *dest, const char *src, size_t count)
 	return tmp;
 }
 
-// ¼³¸í : ¹®ÀÚ¿­ ºñ±³ 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ 
 
 int strcmp(const char * cs,const char * ct)
 {
@@ -112,7 +99,7 @@ int strcmp(const char * cs,const char * ct)
 	return __res;
 }
 
-// ¼³¸í : ¹®ÀÚ¿­ ºñ±³ 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ 
 
 int strncmp(const char * cs,const char * ct,size_t count)
 {
@@ -127,7 +114,7 @@ int strncmp(const char * cs,const char * ct,size_t count)
 	return __res;
 }
 
-// ¼³¸í : ¹®ÀÚ¿­¼Ó¿¡¼­ ¹®ÀÚ¸¦ ¹ß°ßÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½. 
 
 char * strchr(const char * s, int c)
 {
@@ -137,7 +124,7 @@ char * strchr(const char * s, int c)
 	return (char *) s;
 }
 
-// ¼³¸í : ¹®ÀÚ¿­ÀÇ ±æÀÌ¸¦ ¹ÝÈ¯ÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½. 
 
 size_t strlen(const char * s)
 {
@@ -148,7 +135,7 @@ size_t strlen(const char * s)
 	return sc - s;
 }
 
-// ¼³¸í : ¹®ÀÚ¿­¼Ó¿¡¼­ ¹®ÀÚ¸¦ ¹ß°ßÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½. 
 
 char * strrchr(const char * s, int c)
 {
@@ -160,7 +147,7 @@ char * strrchr(const char * s, int c)
        return NULL;
 }
 
-// ¼³¸í : ¹®ÀÚ¿­ÀÇ ±æÀÌ¸¦ ¹ÝÈ¯ÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½. 
 
 size_t strnlen(const char * s, size_t count)
 {
@@ -171,7 +158,7 @@ size_t strnlen(const char * s, size_t count)
 	return sc - s;
 }
 
-// ¼³¸í : ¹®ÀÚ¿­ÀÇ ¹®ÀÚ ±¸¼ºÀ» ºñ±³ ÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñ´ï¿½. 
 
 size_t strspn(const char *s, const char *accept)
 {
@@ -192,7 +179,7 @@ size_t strspn(const char *s, const char *accept)
 	return count;
 }
 
-// ¼³¸í : ±¸ºÐ ¹®ÀÚ¸¦ °Ë»öÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Ë»ï¿½ï¿½Ñ´ï¿½. 
 
 char * strpbrk(const char * cs,const char * ct)
 {
@@ -207,7 +194,7 @@ char * strpbrk(const char * cs,const char * ct)
 	return NULL;
 }
 
-// ¼³¸í : ÅäÅ« ¹®ÀÚ¸¦ ÆÇÁ¤ÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Å« ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 
 char * strtok(char * s,const char * ct)
 {
@@ -229,7 +216,7 @@ char * strtok(char * s,const char * ct)
 	return (sbegin);
 }
 
-// ¼³¸í : ¹®ÀÚ¿­¿¡¼­ ÅäÅ«À» ÃßÃâÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 
 char * strsep(char **s, const char *ct)
 {
@@ -246,7 +233,7 @@ char * strsep(char **s, const char *ct)
 	return sbegin;
 }
 
-// ¼³¸í : ¸Þ¸ð¸® ¿µ¿ªÀ» Æ¯Á¤ °ªÀ» Ã¤¿î´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½. 
 
 void * memset(void * s,int c,size_t count)
 {
@@ -258,7 +245,7 @@ void * memset(void * s,int c,size_t count)
 	return s;
 }
 
-// ¼³¸í : ¸Þ¸ð¸® ¿µ¿ªÀ» º¹»çÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 
 char * bcopy(const char * src, char * dest, int count)
 {
@@ -270,7 +257,7 @@ char * bcopy(const char * src, char * dest, int count)
 	return dest;
 }
 
-// ¼³¸í : ¸Þ¸ð¸® ¿µ¿ªÀ» º¹»çÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 
 void * memcpy(void * dest,const void *src,size_t count)
 {
@@ -282,7 +269,7 @@ void * memcpy(void * dest,const void *src,size_t count)
 	return dest;
 }
 
-// ¼³¸í : ¸Þ¸ð¸® ¿µ¿ªÀ» º¹»çÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 
 void * memmove(void * dest,const void *src,size_t count)
 {
@@ -304,7 +291,7 @@ void * memmove(void * dest,const void *src,size_t count)
 	return dest;
 }
 
-// ¼³¸í : ¸Þ¸ð¸® ¿µ¿ªÀ» ºñ±³ÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½. 
 
 int memcmp(const void * cs,const void * ct,size_t count)
 {
@@ -317,7 +304,7 @@ int memcmp(const void * cs,const void * ct,size_t count)
 	return res;
 }
 
-// ¼³¸í : ¸Þ¸ð¸® ¿µ¿ª¿¡¼­ °ªÀ» Å½»öÇÑ´Ù 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å½ï¿½ï¿½ï¿½Ñ´ï¿½ 
 
 void * memscan(void * addr, int c, size_t size)
 {
@@ -332,7 +319,7 @@ void * memscan(void * addr, int c, size_t size)
   	return (void *) p;
 }
 
-// ¼³¸í : ¹®ÀÚ¿­¿¡¼­ ´Ù¸¥ ¹®ÀÚ¿­À» Å½»öÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ Å½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 
 char * strstr(const char * s1,const char * s2)
 {
@@ -351,7 +338,7 @@ char * strstr(const char * s1,const char * s2)
 	return NULL;
 }
 
-// ¼³¸í : ¸Þ¸ð¸®¿¡¼­ 1 ¹ÙÀÌÆ®¸¦ Å½»öÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Þ¸ð¸®¿ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 
 void *memchr(const void *s, int c, size_t n)
 {
@@ -364,21 +351,21 @@ void *memchr(const void *s, int c, size_t n)
 	return NULL;
 }
 
-// ¼³¸í : ´ë¹®ÀÚ ¹®ÀÚ¿­·Î ¹Ù²Û´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ë¹®ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Ù²Û´ï¿½. 
 
 void UpperStr( char *Str )
 {
    while( *Str ){ *Str = toupper( *Str ); Str++; }
 }
 
-// ¼³¸í : ¼Ò¹®ÀÚ ¹®ÀÚ¿­·Î ¹Ù²Û´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Ò¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Ù²Û´ï¿½. 
 
 void LowerStr( char *Str )
 {
    while( *Str ){ *Str = tolower( *Str ); Str++; }
 }
 
-// ¼³¸í : ¼öÄ¡Çü ¹®ÀÚ¿­À» Á¤¼öÇüÀ¸·Î ¹Ù²Û´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Û´ï¿½. 
 
 unsigned long strtoul(const char *p, char **out_p, int base)
 {
@@ -416,4 +403,3 @@ unsigned long strtoul(const char *p, char **out_p, int base)
 	if (out_p) *out_p = (char*)p;
 	return v;
 }
-

@@ -1,16 +1,3 @@
-/*
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-¦­			  														  lapetOS			   													   ¦­
-¦­				 						 [ General Purpose Kernel for Embedded System ]									   ¦­
-¦­			  																   																	   ¦­
-¦­			  							  					SangMyung University									   					   ¦­
-¦­			  							  				  Computer Science Major												       ¦­
-¦­			  																				   													   ¦­
-¦­					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ¦­
-¦­			  											 	 File Name: mem_map.h	 												   ¦­
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-*/
-
 #ifndef _MEM_MAP_HEADER_
 #define _MEM_MAP_HEADER_
 
@@ -19,19 +6,18 @@
 #define DEFAULT_nCS_NAND_BASE           (S3C2440_CS0_PHYS) 
 #define DEFAULT_nCS_AX88796B_BASE		(S3C2440_CS1_PHYS)	// EtherNet AX88796B
 #define DEFAULT_nCS_CS8900_BASE         (S3C2440_CS1_PHYS)	// EtherNet CS8900
-#define BANK0_START                     (S3C2440_CS6_PHYS)	// ¹ðÅ©0 ½ÃÀÛ À§Ä¡
-#define BANK0_SIZE                      (64*1024*1024)      // ¹ðÅ©0 Å©±â ¸¶Áö¸·ÁÖ¼Ò´Â 0x33ffffff
+#define BANK0_START                     (S3C2440_CS6_PHYS)	// ï¿½ï¿½Å©0 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+#define BANK0_SIZE                      (64*1024*1024)      // ï¿½ï¿½Å©0 Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼Ò´ï¿½ 0x33ffffff
 
-#define DEFAULT_NAND_BOOT				0x00000000          // ³­µå ºÎÆ® ½ÃÀÛ ¾îµå·¹½º 
-#define DEFAULT_BOOT_SIZE              	(128*1024)		    // ºÎÆ®¿µ¿ªÀÇ Å©±â
+#define DEFAULT_NAND_BOOT				0x00000000          // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å·¹ï¿½ï¿½ 
+#define DEFAULT_BOOT_SIZE              	(128*1024)		    // ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½
 
-#define DEFAULT_RAM_KERNEL_START        0x30008000          // ·¥¿¡¼­ Ä¿³Î     ½ÃÀÛ ¾îµå·¹½º 
-#define DEFAULT_RAM_RAMDISK_START       0x30800000          // ·¥¿¡¼­ ·¥µð½ºÅ© ½ÃÀÛ ¾îµå·¹½º 
-#define DEFAULT_RAM_BOOT_START          0x30F00000          // ·¥¿¡¼­ ºÎÆ®     ½ÃÀÛ ¾îµå·¹½º 
-#define DEFAULT_RAM_WORK_START          0x31000000          // ÀÏ¹ÝÀûÀÎ ºÎÆ® ·Î´õ ÀÛ¾÷ ¿µ¿ª 
-#define DEFAULT_RAM_BOOTLOGO_START		0x32000000			// ·¥¿¡¼­ ºÎÆ®·Î°í ½ÃÀÛ ¾îµå·¹½º
+#define DEFAULT_RAM_KERNEL_START        0x30008000          // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½     ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å·¹ï¿½ï¿½ 
+#define DEFAULT_RAM_RAMDISK_START       0x30800000          // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å·¹ï¿½ï¿½ 
+#define DEFAULT_RAM_BOOT_START          0x30F00000          // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®     ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å·¹ï¿½ï¿½ 
+#define DEFAULT_RAM_WORK_START          0x31000000          // ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½Î´ï¿½ ï¿½Û¾ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+#define DEFAULT_RAM_BOOTLOGO_START		0x32000000			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å·¹ï¿½ï¿½
 
-#define DEFAULT_RAM_KERNEL_ZERO_PAGE    S3C2440_CS6_PHYS	// ºÎÆ®·Î´õ¿¡¼­ Ä¿³Î·Î Àü´ÞÇÏ´Â ¿µ¿ª ½ÃÀÛ ¾îµå·¹½º 
+#define DEFAULT_RAM_KERNEL_ZERO_PAGE    S3C2440_CS6_PHYS	// ï¿½ï¿½Æ®ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½Î·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å·¹ï¿½ï¿½ 
 
 #endif //_MEM_MAP_HEADER_
-

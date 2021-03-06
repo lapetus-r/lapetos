@@ -1,16 +1,3 @@
-/*
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-¦­			  														  lapetOS			   													   ¦­
-¦­				 						 [ General Purpose Kernel for Embedded System ]									   ¦­
-¦­			  																   																	   ¦­
-¦­			  							  					SangMyung University									   					   ¦­
-¦­			  							  				  Computer Science Major												       ¦­
-¦­			  																				   													   ¦­
-¦­					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ¦­
-¦­			  											 	 File Name: s3c2440.h		 											   ¦­
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-*/
-
 #ifndef __S3C2440_H__
 #define __S3C2440_H__
 
@@ -18,8 +5,7 @@
 #define	HCLK					FCLK/3		// FCLK=399650000	HCLK=133216000
 #define	PCLK					FCLK/6		// FCLK=399650000	PCLK= 66608000
 
-
-//	±âº» Çü¿¡ ´ëÇÑ Á¤ÀÇ  
+//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  
 
 typedef unsigned char   		Byte;
 typedef unsigned short  		Word16 ;
@@ -43,8 +29,7 @@ typedef double DOUBLE_U;
 typedef CHAR_U BOOLEAN;
 typedef unsigned long STACK;
 
-
-//	±âº» µ¥ÀÌÅ¸ Ã³¸® ¸ÅÅ©·Î 
+//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½Å¸ Ã³ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ 
 
 #define UData(Data)				((unsigned int) (Data))
                             	
@@ -63,7 +48,6 @@ typedef unsigned long STACK;
 
 #define __REG2(x,y)				(*(volatile Word *)((Word)&__REG(x) + (y)))
 
-
 //	S3C2440 physical 
 
 #define S3C2440_CS0_PHYS		0x00000000
@@ -74,7 +58,6 @@ typedef unsigned long STACK;
 #define S3C2440_CS5_PHYS		0x28000000
 #define S3C2440_CS6_PHYS		0x30000000
 #define S3C2440_CS7_PHYS		0x38000000
-
 
 //	INTERRUPT
 
@@ -139,7 +122,6 @@ typedef unsigned long STACK;
 #define ALLMSK     				( 0xFFFFFFFF )
 #define SUB_ALLMSK				( 0x7FFF )
 
-
 //	PWM TIMER
 
 #define TCFG0					__REG(0x51000000)	// Timer 0 configuration
@@ -162,17 +144,16 @@ typedef unsigned long STACK;
 #define TCNTB4					__REG(0x5100003C)	// Timer count buffer 4
 #define TCNTO4					__REG(0x51000040)	// Timer count observation 4
 
-// Å¸ÀÌ¸ÓÀÇ ÇÁ¸®½ºÄÉÀÏ·¯´Â MAX, µ¥µåÁ¸Àº »ç¿ëÇÏÁö ¾Ê´Â´Ù.
+// Å¸ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ MAX, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 #define TCFG0_DEAD_ZONE_LEN		( 0x00 << 16 )
 #define TCFG0_PRESCALER1		( 0xFF <<  8 )	// Timer 2,3 and 4
 #define TCFG0_PRESCALER0		( 0xFF <<  0 )	// Timer 0 and 1
 
 #define TCFG0_VALUE				( TCFG0_PRESCALER0 | TCFG0_PRESCALER1 | TCFG0_DEAD_ZONE_LEN )
 
-
-// Å¸ÀÌ¸ÓÀÇ Å¬·°Àº PCLK ÀÇ 1/16 À» ¼±ÅÃÇÑ´Ù.
-// MAX ÇÁ¸®½ºÄÉÀÏ·¯´Â ¼±ÅÃÇÏ¿´À¸¹Ç·Î 81.91880us ÀÇ resolution À» °®´Â´Ù.
-// ÃÖ´ë Å¸ÀÌ¸Ó ÀÎÅÍ¹ú(16ºñÆ®Å¸ÀÌ¸Ó 65535)Àº 5.3686sec ÀÌ´Ù.
+// Å¸ï¿½Ì¸ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ PCLK ï¿½ï¿½ 1/16 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+// MAX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ 81.91880us ï¿½ï¿½ resolution ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
+// ï¿½Ö´ï¿½ Å¸ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Í¹ï¿½(16ï¿½ï¿½Æ®Å¸ï¿½Ì¸ï¿½ 65535)ï¿½ï¿½ 5.3686sec ï¿½Ì´ï¿½.
 #define TCFG1_DMA				( 0 << 20 )		// 0=No select(All Interrup) 1=Timer0	2=Timer1	3=Timer2	4=Timer3	5=Timer4
 #define TCFG1_MUX4				( 3 << 16 )		// 0=1/2	1=1/4	2=1/8	3=1/16	4=External TCLK1
 #define TCFG1_MUX3				( 3 << 12 )		// 0=1/2	1=1/4	2=1/8	3=1/16	4=External TCLK1
@@ -181,7 +162,6 @@ typedef unsigned long STACK;
 #define TCFG1_MUX0				( 3 <<  0 )		// 0=1/2	1=1/4	2=1/8	3=1/16	4=External TCLK0
                             	
 #define TCFG1_VALUE				( TCFG1_DMA | TCFG1_MUX4 | TCFG1_MUX3 | TCFG1_MUX2 | TCFG1_MUX1 | TCFG1_MUX0 )                                  
-
 
 // Timer Control (TCON) Register
 #define	TCON_TM4_ONE_SHOT		( 0 << 22 )
@@ -229,7 +209,6 @@ typedef unsigned long STACK;
 #define	TCON_TM0_STOP			( 0 <<  0 )
 #define	TCON_TM0_START			( 1 <<  0 )
 
-
 //	WATCH DOG TIMER
 
 #define	WTCON					__REG(0x53000000)	// Watch-dog timer mode
@@ -246,12 +225,10 @@ typedef unsigned long STACK;
 #define WTCON_RESET_ENABLE		( 0x01 << 0 )
 
 // Watch dog timer setup
-// ÇÁ¸®½ºÄÉÀÏ·¯´Â 255 ÀÌ¹Ç·Î ¼±ÅÃÇÏ¿´À¸¹Ç·Î  PCLK ÀÇ 255 ºÐÁÖ¸¦ ÇÑ´Ù.
-// µð¹ÙÀÌ´õ´Â 16À» ¼±ÅÃÇÏ¿´À¸¹Ç·Î ÃÖ´ë Å¸ÀÌ¸Ó ÀÎÅÍ¹ú(16ºñÆ®Å¸ÀÌ¸Ó 65535)Àº 5.3686sec ÀÌ´Ù.
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ 255 ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ç·ï¿½  PCLK ï¿½ï¿½ 255 ï¿½ï¿½ï¿½Ö¸ï¿½ ï¿½Ñ´ï¿½.
+// ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ 16ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½Ö´ï¿½ Å¸ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Í¹ï¿½(16ï¿½ï¿½Æ®Å¸ï¿½Ì¸ï¿½ 65535)ï¿½ï¿½ 5.3686sec ï¿½Ì´ï¿½.
 // t_watchdog = 50000000(PCLK) / (255+1) / 16 = TICKS_PER_SECOND
 #define WTCON_VALUE				( WTCON_RESET_ENABLE | WTCON_CLOCK_SEL_16 | WTCON_PRESCALER )
-
-
 
 //	NAND flash
 
@@ -271,8 +248,6 @@ typedef unsigned long STACK;
 #define NFECC					__REG  (0x4E000034)      //NAND Flash ECC
 #define NFSBLK					__REG  (0x4E000038)
 #define NFEBLK					__REG  (0x4E00003C)
-
-
 
 //	S3C2440 UART control registers
 
@@ -333,7 +308,6 @@ typedef unsigned long STACK;
 #define UART2_URXH				__REG(0x50008024)	// UART2 Receive Buffer Register
 #endif
 
-
 //	UART Line Control Register 	[ Default : Normal mode, No parity, 1-stop bit, 8-bits ]
 
 #define	ULCON_INFRA_RED_MODE	( 0x00 << 6 )   // 0 = Normal Mode 1 = Infra-Red Tx/Rx Mode
@@ -350,7 +324,6 @@ typedef unsigned long STACK;
 #define	ULCON_DATA_BIT_8		( 0x03 >> 0 )	// 11=8-bits
 
 #define	ULCON_VALUE				( ULCON_INFRA_RED_MODE | ULCON_PARITY_NONE | ULCON_STOP_BIT_1 | ULCON_DATA_BIT_8 )
-
 
 //	UART Control Register
 
@@ -370,7 +343,6 @@ typedef unsigned long STACK;
 								| UCON_RX_TIME_OUT_EN | UCON_RX_ERR_STAT_INT_EN | UCON_LOOPBACK_MODE	\
 								| UCON_SEND_BRK_SGN   | UCON_TX_MODE            | UCON_RX_MODE )
 
-
 //	UART FIFO Control Register
 
 #define	UFCON_TX_FIFO_TRG_LEVEL	( 0x0 << 6 )	// 00 = Empty   01 = 4-byte  10 =  8-byte  11 = 12-byte
@@ -379,20 +351,16 @@ typedef unsigned long STACK;
 #define	UFCON_RX_FIFO_RESET		( 0x1 << 1 )	// 0  = Normal	1  = Rx FIFO reset 
 #define	UFCON_FIFO_EN			( 0x1 << 0 )	// 0  = Disable	1  = Enable
 
-
 //	UART MODEM Status Register
 
 #define	UMCON_AFC				( 0x0 << 4 )	// 0 = Disable		1 = Emable
 #define	UMCON_RTS				( 0x0 << 0 )	// 0 = 'H' Level	1 = 'L' Level
-
 
 //	UART TX/RX Status Register
 
 #define	UTRxSTAT_TX_EMPTY		( 0x1 << 2 )	// 0 = Not Empty	1 = Transmitter Empty
 #define	UTRxSTAT_TX_BUFF_EMPTY	( 0x1 << 1 )	// 0 = The buffer register is not Empty		1 = Empty
 #define	UTRxSTAT_RX_BUFF_REAYD	( 0x1 << 0 )	// 0 = Empty		1 = The buffer rebister has a received data
-
-
 
 //	LCD Controller Register
 
@@ -493,8 +461,6 @@ typedef unsigned long STACK;
 
 #define LCD_LPCSEL				__REG(0x4D000060)
 
-
-
 // GPIO
 
 #define GPACON					__REG(0x56000000) //Port A control
@@ -531,9 +497,7 @@ typedef unsigned long STACK;
 #define GPJCON					__REG(0x560000D0) //Port H control
 #define GPJDAT					__REG(0x560000D4) //Port H data
 #define GPJUP					__REG(0x560000D8) //Pull-up control H
-                    				
-                            	
-                    				
+      				
 #define MISCCR					__REG(0x56000080) //Miscellaneous control
 #define DCLKCON					__REG(0x56000084) //DCLK0/1 control
 #define EXTINT0					__REG(0x56000088) //External interrupt control register 0
@@ -555,7 +519,6 @@ typedef unsigned long STACK;
 #define DSC1					__REG(0x560000c8) // Control the Memory I/O drive strength
                             	
 #define MSLCON					__REG(0x560000cc) // Select memory interface status when in SLEEP mode
-                            	
 
 //	GENERAL STATUS Register (GSTATUS0)
 
@@ -567,4 +530,3 @@ typedef unsigned long STACK;
 #define GPIO_bit(x)				( 1 << ((x) & 0xf))
 
 #endif  //__S3C2440_H__
-

@@ -1,16 +1,3 @@
-/*
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-¦­			  														  lapetOS			   													   ¦­
-¦­				 						 [ General Purpose Kernel for Embedded System ]									   ¦­
-¦­			  																   																	   ¦­
-¦­			  							  					SangMyung University									   					   ¦­
-¦­			  							  				  Computer Science Major												       ¦­
-¦­			  																				   													   ¦­
-¦­					  					  Made by: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ¦­
-¦­			  											 	   File Name: serial.c		 												   ¦­
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-*/
-
 #include <serial.h>
 #include <stdio.h>
 #include <s3c2440.h>
@@ -18,7 +5,7 @@
 
 static int SerialErrorFlag = 0;
 
-static volatile Word *UART = UART2_BASE; // UART º£ÀÌ½º ¾îµå·¹½º 
+static volatile Word *UART = UART2_BASE; // UART ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½å·¹ï¿½ï¿½ 
 
 #define UART_LCR		((volatile Word) UART[ 0])  		//  UART line control register 
 #define UART_UCR		((volatile Word) UART[ 1])  		//  UART control register
@@ -37,19 +24,19 @@ static volatile Word *UART = UART2_BASE; // UART º£ÀÌ½º ¾îµå·¹½º
 #endif                                              		
 #define UART_BAUD		((volatile Word) UART[10])  		//  Baud rate divisor register
 
-// ¼³¸í : ½Ã¸®¾ó µð¹ÙÀÌ½º¿¡ ÇÑ ¹®ÀÚ¸¦ º¸³½´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
 
 void SerialOutChar( const char c  )
 {
-	// Àü¼Û °¡´ÉÇÒ¶§±îÁö ±â´Ù¸°´Ù. 
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½. 
 	//Wait until THR is empty.
 	while(!(UART_TRxSTAT & UTRxSTAT_TX_EMPTY)) ;
 
-	// ½Ã¸®¾ó¿¡ µ¥ÀÌÅ¸¸¦ Ãâ·ÂÇÑ´Ù. 
+	// ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 	UART_TXD = c;
 }
 
-// ¼³¸í : ½Ã¸®¾ó µð¹ÙÀÌ½º¿¡ ÇÑ ¹®ÀÚ¸¦ º¸³½´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
 
 void SerialOutChar_CheckCR( const char c  )
 {
@@ -57,7 +44,7 @@ void SerialOutChar_CheckCR( const char c  )
 	if(c == '\n') SerialOutChar('\r');
 }
 
-// ¼³¸í : ½Ã¸®¾ó µð¹ÙÀÌ½º¿¡ ¹®ÀÚ¿­À» º¸³½´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
 
 int SerialOutStr( char *str, int size )
 {
@@ -68,7 +55,7 @@ int SerialOutStr( char *str, int size )
 	return lp;
 }
 
-// ¼³¸í : ½Ã¸®¾ó µð¹ÙÀÌ½º¿¡ ¹®ÀÚ¿­À» º¸³½´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
 
 int SerialOutStr_CheckCR( char *str, int size )
 {
@@ -79,31 +66,31 @@ int SerialOutStr_CheckCR( char *str, int size )
 	return lp;
 }
 
-// ¼³¸í : ½Ã¸®¾ó µð¹ÙÀÌ½º¿¡¼­ ¼ö½ÅµÈ µ¥ÀÌÅ¸°¡ ÀÖ´ÂÁö È®ÀÎÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Åµï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ñ´ï¿½. 
 
 int SerialIsReadyChar( void )
 {
-	// ¼ö½ÅµÈ µ¥ÀÌÅ¸°¡ ÀÖ´Â°¡¸¦ È®ÀÎÇÑ´Ù. 	
+	// ï¿½ï¿½ï¿½Åµï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ö´Â°ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ñ´ï¿½. 	
 	if( UART_TRxSTAT & UTRxSTAT_RX_BUFF_REAYD) return 1;
 	return 0;
 }
 
-// ¼³¸í : ½Ã¸®¾ó µð¹ÙÀÌ½º¿¡¼­ µ¥ÀÌÅ¸¸¦ ÀÐ¾î ¿Â´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ð¾ï¿½ ï¿½Â´ï¿½. 
 
 char SerialIsGetChar( void )
 {
     char RxData;
         
-    // ¼ö½ÅµÈ µ¥ÀÌÅ¸¸¦ °¡Á® ¿Â´Ù. 
+    // ï¿½ï¿½ï¿½Åµï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Â´ï¿½. 
     RxData =  (char) UART_RXD;
 	
-	// ¿¡·¯¸¦ °¡Á® ¿Â´Ù. 
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Â´ï¿½. 
 	SerialErrorFlag = UART_ERRSTAT & 0xF;
 	
 	return RxData;
 }
 
-// ¼³¸í : ½Ã¸®¾ó µð¹ÙÀÌ½ºÀÇ ¼ö½Å ¿¡·¯ ÇÃ¶ó±×¸¦ Å¬¸®¾î ÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½×¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½. 
 
 char SerialIsClearError( void )
 {
@@ -111,10 +98,9 @@ char SerialIsClearError( void )
 	return (char)SerialErrorFlag;
 }
 
-// ¼³¸í : ½Ã¸®¾ó µð¹ÙÀÌ½ºÀÇ ¼ö½Å ¿¡·¯ ÇÃ¶ó±× °ªÀ» ¾ò´Â´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â´ï¿½. 
 
 int SerialIsGetError( void )
 {
 	return SerialErrorFlag;
 }
-

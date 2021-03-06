@@ -1,15 +1,3 @@
-/*
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-¦­			  														  lapetOS			   													   ¦­
-¦­				 						 [ General Purpose Kernel for Embedded System ]									   ¦­
-¦­			  																   																	   ¦­
-¦­			  							  					SangMyung University									   					   ¦­
-¦­			  							  				  Computer Science Major												       ¦­
-¦­			  																				   													   ¦­
-¦­					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ¦­
-¦­			  											 	File Name: vsprintf.c		 												   ¦­
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-*/
 #include <stdio.h>
 #include <string.h>
 
@@ -40,7 +28,7 @@ _L,_L,_L,_L,_L,_L,_L,_L,_L,_L,_L,_L,_L,_L,_L,_L,       /* 224-239 */
 _L,_L,_L,_L,_L,_L,_L,_P,_L,_L,_L,_L,_L,_L,_L,_L};      /* 240-255 */
 
 
-// ¼³¸í : ¼öÄ¡Çü ¹®ÀÚ¿­¿¡ ÇØ´çÇÏ´Â Á¤¼ö¸¦ ¹ÝÈ¯ÇÑ´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½. 
 static int skip_atoi(const char **s)
 {
 	int i=0;
@@ -49,7 +37,7 @@ static int skip_atoi(const char **s)
 	return i;
 }
 
-// ¼³¸í : ¼öÄ¡ Ç¥Çö Æ÷¸Ë ¹®ÀÚ¿­ Ã³¸® ÇÔ¼ö 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ä¡ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ Ã³ï¿½ï¿½ ï¿½Ô¼ï¿½ 
 static char * number(char * str, long long num, int base, int size, int precision, int type)
 {
 	char c,sign,tmp[66];
@@ -116,7 +104,7 @@ static char * number(char * str, long long num, int base, int size, int precisio
 	return str;
 }
 
-// ¼³¸í : ¹öÆÛ¿¡ Æ÷¸Ë ¹®ÀÚ¿­¿¡ ¸Â´Â ¹®ÀÚ¿­À» ¸¸µç´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Â´ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½. 
 int vsprintf(char *buf, const char *fmt, va_list args)
 {
 	int len;
@@ -278,7 +266,7 @@ int vsprintf(char *buf, const char *fmt, va_list args)
 	*str = '\0';
 	return str-buf;
 }
-// ¼³¸í : ¹öÆÛ¿¡ Æ÷¸Ë ¹®ÀÚ¿­¿¡ ¸Â´Â ¹®ÀÚ¿­À» ¸¸µç´Ù. 
+// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Â´ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½. 
 int sprintf(char * buf, const char *fmt, ...)
 {
 	va_list args;
@@ -289,4 +277,3 @@ int sprintf(char * buf, const char *fmt, ...)
 	va_end(args);
 	return i;
 }
-
