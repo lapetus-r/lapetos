@@ -1,26 +1,20 @@
 /*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃			  														  lapetOS			   													   ┃
-┃				 						 [ General Purpose Kernel for Embedded System ]									   ┃
-┃			  																   																	   ┃
-┃			  							  					SangMyung University									   					   ┃
-┃			  							  				  Computer Science Major												       ┃
-┃			  																				   													   ┃
-┃					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ┃
-┃			  												   File Name: linux.h	 													   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
+╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
+┃								lapetOS									┃
+┃			 [ General Purpose Kernel for Embedded System ]				┃
+┃			  															┃
+┃			  			  SangMyung University							┃
+┃			  			 Computer Science Major							┃
+┃			  															┃
+┃			 Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012				┃
+┃			  			 	File Name: linux.h	 			   			┃
+╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
 */
 
-#define INTERRUPT_NUM	1						/* 인터럽트 번호	*/
-#define ContextSW()	CtxSwfromSched();		/* 문맥전환			*/
+#define INTERRUPT_NUM 1 /* 인터럽트 번호 */
+#define ContextSW()	CtxSwfromSched(); /* 문맥전환 */
 
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 											 [ Global Variable Declare ]												   ┃
-┃			  									 for the purpose of porting to linux kernel		  								   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
+/* Global Variable Declare */
 typedef int INT;
 typedef char CHAR;
 typedef float FLOAT;
@@ -35,13 +29,7 @@ typedef double DOUBLE_U;
 typedef CHAR_U BOOLEAN;
 typedef unsigned long STACK;
 
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 										 [ Method Prototype Declare ]												   ┃
-┃			  									 for the purpose of porting to linux kernel		  								   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
+/* Method Prototype Declare */
 void (*tickMethod)(void);
 void EnableInt(void);
 void DisableInt(void);
@@ -59,4 +47,3 @@ void TimeTickSignal(int parameter);
 void KernelStart(void);
 void ThreadStart(void);
 STACK *PCBStackInit(void (*proc)(void *pd), STACK *stktop);
-
