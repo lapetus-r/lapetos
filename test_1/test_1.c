@@ -12,7 +12,7 @@
 */
 
 #include <include.h>
-#include "../src/include/kernel.h"	/* 대체경로 "/home/lapetus/바탕화면/lapetOS/src/include/kernel.h"	*/
+#include "../src/include/kernel.h" /* 대체경로 "/home/lapetus/바탕화면/lapetOS/src/include/kernel.h" */
 
 /* Process Stack */
 STACK stktop1[STACK_SIZE - 1];
