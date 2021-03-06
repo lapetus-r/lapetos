@@ -1,16 +1,3 @@
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃								lapetOS									┃
-┃			 [ General Purpose Kernel for Embedded System ]				┃
-┃			  															┃
-┃			  			  SangMyung University							┃
-┃			  			 Computer Science Major							┃
-┃			  															┃
-┃			 Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012				┃
-┃			  			  File Name: kernel.h				   			┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
 #define KERNEL_VER 1 5 17 /* 커널 버전 */
 #define PROC_CNT 16 /* 프로세스 갯수 */
 #define EVENT_CNT 16 /* 이벤트 갯수 */

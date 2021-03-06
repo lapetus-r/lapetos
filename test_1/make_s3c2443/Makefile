@@ -1,14 +1,3 @@
-#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-#								lapetOS									┃
-#			 [ General Purpose Kernel for Embedded System ]				┃
-#			  															┃
-#			  			  SangMyung University							┃
-#			  			 Computer Science Major							┃
-#			  															┃
-#			 Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012				┃
-#			  			  File Name: Makefile			  	 			┃
-#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-
 CC = arm-linux-gcc
 LD = arm-linux-ld
 OC = arm-linux-objcopy

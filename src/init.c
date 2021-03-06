@@ -1,16 +1,3 @@
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃								lapetOS									┃
-┃			 [ General Purpose Kernel for Embedded System ]				┃
-┃			  															┃
-┃			  			  SangMyung University							┃
-┃			  			 Computer Science Major							┃
-┃			  															┃
-┃			 Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012				┃
-┃			  			   File Name: init.c	 			   			┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
 #include <include.h>
 #include "include/kernel.h"	/* 대체경로 "/home/lapetus/바탕화면/lapetOS/src/include/kernel.h" */
 

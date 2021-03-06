@@ -1,16 +1,3 @@
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃								lapetOS									┃
-┃			 [ General Purpose Kernel for Embedded System ]				┃
-┃			  															┃
-┃			  			  SangMyung University							┃
-┃			  			 Computer Science Major							┃
-┃			  															┃
-┃			 Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012				┃
-┃			  			 	File Name: linux.c	 			   			┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
 #include    <stdio.h>
 #include    <stdlib.h>
 #include    <stdarg.h>

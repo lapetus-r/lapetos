@@ -1,16 +1,3 @@
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃								lapetOS									┃
-┃			 [ General Purpose Kernel for Embedded System ]				┃
-┃			  															┃
-┃			  			  SangMyung University							┃
-┃			  			 Computer Science Major							┃
-┃			  															┃
-┃			 Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012				┃
-┃			  			 	File Name: linux.h	 			   			┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
 #define INTERRUPT_NUM 1 /* 인터럽트 번호 */
 #define ContextSW()	CtxSwfromSched(); /* 문맥전환 */
 
