@@ -1,18 +1,5 @@
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃			  														  lapetOS			   													   ┃
-┃				 						 [ General Purpose Kernel for Embedded System ]									   ┃
-┃			  																   																	   ┃
-┃			  							  					SangMyung University									   					   ┃
-┃			  							  				  Computer Science Major												       ┃
-┃			  																				   													   ┃
-┃					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ┃
-┃			  											 	 File Name: TFTLCD.h	 													   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/#ifndef __LCD_H__
+#ifndef __LCD_H__
 #define __LCD_H__
-
-
 
 #define TFT_16BIT	0
 #define TFT_24BIT	3
@@ -83,7 +70,6 @@
 #define VIDTCON2_LINEVAL_S			(11)
 #define VIDTCON2_HOZVAL_S			(0)
 
-
 //* WINCON1to4
 #define WINCONx_BIT_SWAP_ON			(1<<18)	//shift on basis of half-word swap
 #define WINCONx_BYTE_SWAP_ON		(1<<17)	//shift on basis of half-word swap
@@ -122,13 +108,11 @@
 #define VIDWxADD2_OFFSET_SIZE_S		(13)
 #define VIDWxADD2_PAGE_WIDTH_S		(0)
 
-
 //* VIDOSDxA,B,C
 //bit shift
 #define VIDOSDxAB_HORIZON_X_S		(11)
 #define VIDOSDxAB_VERTICAL_Y_S		(0)
 #define VIDOSDxC_ALPHA0_S			(12)
-
 
 #define LCD_WIN_0					0
 #define LCD_WIN_1					1

@@ -1,16 +1,3 @@
-/*
-朱收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收朱
-早			  														  lapetOS			   													   早
-早				 						 [ General Purpose Kernel for Embedded System ]									   早
-早			  																   																	   早
-早			  							  					SangMyung University									   					   早
-早			  							  				  Computer Science Major												       早
-早			  																				   													   早
-早					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   早
-早			  											 	File Name: stdio.h		 													   早
-朱收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收收朱
-*/
-
 #ifndef _STDIO__HEADER_
 #define _STDIO__HEADER_
 
@@ -135,4 +122,3 @@ extern int vsscanf(char *s, const char *fmt, va_list args);
 extern int sscanf(char *s, const char *fmt, ...);
 
 #endif //_STDIO_HEADER_
-

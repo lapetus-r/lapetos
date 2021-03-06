@@ -1,16 +1,3 @@
-/*
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-¦­			  														  lapetOS			   													   ¦­
-¦­				 						 [ General Purpose Kernel for Embedded System ]									   ¦­
-¦­			  																   																	   ¦­
-¦­			  							  					SangMyung University									   					   ¦­
-¦­			  							  				  Computer Science Major												       ¦­
-¦­			  																				   													   ¦­
-¦­					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ¦­
-¦­			  											 	File Name: serial.h		 													   ¦­
-¦¶¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¶
-*/
-
 #ifndef _SERIAL_HEADER_
 #define _SERIAL_HEADER_
 
@@ -31,15 +18,14 @@ typedef enum
     BAUD_230400 =   230400
 } eBauds;
 
-extern void SerialInit( eBauds baudrate);		// ¸ÞÀÎ ½Ã¸®¾ó ÃÊ±âÈ­ 
-extern void SerialOutChar( const char ch  );    	// ½Ã¸®¾ó¿¡ ÇÑ ¹®ÀÚ¸¦ Ãâ·ÂÇÑ´Ù. 
-extern int  SerialOutStr( char *str, int size );	// ½Ã¸®¾ó¿¡ ¹öÆÛÀÇ ³»¿ëÀ» Ãâ·ÂÇÑ´Ù. 
-extern void SerialOutChar_CheckCR( const char c  );    // ½Ã¸®¾ó¿¡ ÇÑ ¹®ÀÚ¸¦ Ãâ·ÂÇÑ´Ù. 
-extern int  SerialOutStr_CheckCR( char *str, int size ); // ½Ã¸®¾ó¿¡ ¹öÆÛÀÇ ³»¿ëÀ» Ãâ·ÂÇÑ´Ù. 
+extern void SerialInit( eBauds baudrate);		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ 
+extern void SerialOutChar( const char ch  );    	// ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
+extern int  SerialOutStr( char *str, int size );	// ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
+extern void SerialOutChar_CheckCR( const char c  );    // ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
+extern int  SerialOutStr_CheckCR( char *str, int size ); // ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 extern int SerialIsReadyChar( void );
 extern unsigned int SerialIsGetChar( void );
 extern char SerialIsClearError( void );
 extern int SerialIsGetError( void );
 
 #endif //_SERIAL_HEADER_
-

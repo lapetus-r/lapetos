@@ -1,16 +1,3 @@
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃			  														  lapetOS			   													   ┃
-┃				 						 [ General Purpose Kernel for Embedded System ]									   ┃
-┃			  																   																	   ┃
-┃			  							  					SangMyung University									   					   ┃
-┃			  							  				  Computer Science Major												       ┃
-┃			  																				   													   ┃
-┃					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ┃
-┃			  											 	 File Name: uart.c       													   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
 #include <include.h>
 
 /*
@@ -55,4 +42,3 @@ unsigned int getchar(void)
 
 	return ch;
 }
-

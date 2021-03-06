@@ -1,16 +1,3 @@
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃			  														  lapetOS			   													   ┃
-┃				 						 [ General Purpose Kernel for Embedded System ]									   ┃
-┃			  																   																	   ┃
-┃			  							  					SangMyung University									   					   ┃
-┃			  							  				  Computer Science Major												       ┃
-┃			  																				   													   ┃
-┃					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ┃
-┃			  											 	 File Name :  Key.c		 	  											   		┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
 #include<include.h>
 
 // 설명 : GPIO의 일종으로 SW40*키를 누름으로써 화면의 출력을 하는 함수
@@ -51,4 +38,3 @@ void test_key(void)
 			}
 	}
 }
-

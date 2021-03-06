@@ -1,16 +1,3 @@
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃			  														  lapetOS			   													   ┃
-┃				 						 [ General Purpose Kernel for Embedded System ]									   ┃
-┃			  																   																	   ┃
-┃			  							  					SangMyung University									   					   ┃
-┃			  							  				  Computer Science Major												       ┃
-┃			  																				   													   ┃
-┃					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ┃
-┃			  											 	 File Name: s3c2443.h 													   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
 #ifndef __S3C2443_CONFIG__
 #define __S3C2443_CONFIG__
 
@@ -28,7 +15,6 @@
 #define	FCLK					534000000
 #define	HCLK					FCLK/3		// FCLK=534000000	HCLK=178000000
 #define	PCLK					FCLK/8		// FCLK=534000000	PCLK= 66750000
-
 
 /* UART */
 #define UTRSTAT1					(*(volatile unsigned *)0x50004010)		//UART 1 Tx/Rx status
@@ -248,4 +234,3 @@ typedef CHAR_U BOOLEAN;
 typedef unsigned long STACK;
 
 #endif
-

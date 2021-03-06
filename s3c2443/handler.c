@@ -1,16 +1,3 @@
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃			  														  lapetOS			   													   ┃
-┃				 						 [ General Purpose Kernel for Embedded System ]									   ┃
-┃			  																   																	   ┃
-┃			  							  					SangMyung University									   					   ┃
-┃			  							  				  Computer Science Major												       ┃
-┃			  																				   													   ┃
-┃					  					  Made By: Yoo Sang-Gi / Park Il-Kwon, 2011-2012							  	   ┃
-┃			  											 	File Name: handler.c		 												   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
 #include <include.h>
 #include "../src/include/kernel.h"
 
@@ -138,4 +125,3 @@ void irqHandler(void)
 		INTPND=0x1000;
 	}
 }
-
