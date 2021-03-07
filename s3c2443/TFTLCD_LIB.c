@@ -1,5 +1,5 @@
 #include <include.h>
-#include "../../src/include/kernel.h"	/* 대체경로 "/home/lapetus/바탕화면/lapetOS/src/include/kernel.h"*/
+#include "../../src/include/kernel.h" /* 대체경로 "/home/lapetus/바탕화면/lapetOS/src/include/kernel.h"*/
 #include "font.h"
 #define gray		 0x888888
 #define black		 0x000000
@@ -12,12 +12,8 @@
 
 extern void (*Put_Pixel)(unsigned int x, unsigned int y, int color);
 extern void (*Put_Pixel_back)(unsigned int x, unsigned int y, int color);
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 													 [ lprintf ]																   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
 
+/* lprintf */
 int lprintf(const char *fmt, ...)
 {
 	char buffer[1024];
@@ -30,23 +26,15 @@ int lprintf(const char *fmt, ...)
 	return len;
 }
 
-
 /*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 													 [ LCD_Write ]															   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-/*
- LCD 디바이스에 문자열을 보낸다. 
+LCD_Write : LCD 디바이스에 문자열을 보낸다. 
 설명 : char형 포인터 배열을 사용하여 매개변수로 넘어오는 char형 배열을 28단위로 잘라 포인터 배열에 순차적으로 넣어주며, 
 17번째 줄이 변경되는 순간, 포인터배열의 0번지에는 1번지의 값이 1번지에는 2번지의 값이 넘어가며 마지막 17번째 배열에는 매개변수로 넘어오는 char형 배열의 값이 저장되어 순차적인 스크롤 기능을 구현한 것이다.
-
 각 명령문뒤의 주석은 매개변수의 역할을 설명한것이다.
 */
-
 int LCD_Write( char *str, int size )	
 {
-static char *line[17];									//char형 배열의 주소값을 저장하기위한 char 포인터형 배열
+static char *line[17]; // char형 배열의 주소값을 저장하기위한 char 포인터형 배열
 static int i=0;				
 int j=0,k,l=0;
 
@@ -62,17 +50,13 @@ int j=0,k,l=0;
 		j+=28;
 	}
 	for(l=0;l<17;l++){
-		bg_lputs(243,l*16+2,0xff00,0x000000,line[l]);			//4번째 매개변수는 글자외의 부분에 백그라운드를 주는 기능으로써 0x0은 검정색을 뜻한다.
+		bg_lputs(243,l*16+2,0xff00,0x000000,line[l]); // 4번째 매개변수는 글자외의 부분에 백그라운드를 주는 기능으로써 0x0은 검정색을 뜻한다.
 	}
 	
 	return 0;			
 }
 
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 													 [ State ]															   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
+/* State */
 int State(int create, int running){
 	
 	lprintf("%d",ticks);
@@ -136,11 +120,7 @@ int State(int create, int running){
 	return running;
 }
 
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 													 [ lputs ]																   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
+/* lputs */
 void lputs(unsigned int x, unsigned int y, unsigned int color, char *str)
 {
 	int i,j,k;
@@ -165,12 +145,7 @@ void lputs(unsigned int x, unsigned int y, unsigned int color, char *str)
 	}
 }
 
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 													 [ bg_lputs ]															   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
+/* bg_lputs */
 void bg_lputs(unsigned int x, unsigned int y, unsigned int color, unsigned int bgcolor, char *str)
 {
 	int i,j,k;
@@ -189,7 +164,7 @@ void bg_lputs(unsigned int x, unsigned int y, unsigned int color, unsigned int b
 					Put_Pixel(x+7-k,y+j,color);
 				}else{
 					Put_Pixel(x+7-k,y+j,bgcolor);
-						if(j==15&&y>=257){				//맨하단줄 사라지는 에러 수정
+						if(j==15&&y>=257){ // 맨하단줄 사라지는 에러 수정
 							LCD_Line(240, 271, 479, 271, 0xff00);
 						}
 				}
@@ -199,13 +174,7 @@ void bg_lputs(unsigned int x, unsigned int y, unsigned int color, unsigned int b
 	}
 }
 
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 													 [ TFT_Box ]															   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
-
+/* TFT_Box */
 void TFT_Box(int x1, int y1, int x2, int y2, int color)
 {
 	int x, y, xx1, yy1, xx2, yy2;
@@ -222,12 +191,7 @@ void TFT_Box(int x1, int y1, int x2, int y2, int color)
 }
 
 /*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 											 [ TFT_Box_Select_Color ]												   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
-/*
+TFT_Box_Select_Color
 설명 : LCD의 좌측 사각형에 순서와 색상을 선택한다.
 i 매개변수는 사각형의 위치를 선택하는 것이며, 
 color 는 사각형의 색깔을 선택하는 것 
@@ -261,31 +225,25 @@ unsigned int Box_color=0;
 		}
 			switch(i){
 				case 1:
-					TFT_Box(2,2,119,135,Box_color);//1번째 사각형
+					TFT_Box(2,2,119,135,Box_color); //1번째 사각형
 				break;
 				case 2:
-					TFT_Box(121,2,239,135,Box_color);//2번째 사각형
+					TFT_Box(121,2,239,135,Box_color); //2번째 사각형
 				break;
 				case 3:
-					TFT_Box(241,2,359,135,Box_color);//3번째 사각형
+					TFT_Box(241,2,359,135,Box_color); //3번째 사각형
 				break;
 				case 4:
-					TFT_Box(361,2,479,135,Box_color);//4번째사각형
+					TFT_Box(361,2,479,135,Box_color); //4번째사각형
 				break;
 				case 5:
-					TFT_Box(2,137,119,270,Box_color);//5번째 사각형
+					TFT_Box(2,137,119,270,Box_color); //5번째 사각형
 				break;
 
 			}
 }
 
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 												 [ LCD_Line ]																   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
-
+/* LCD_Line */
 void LCD_Line(int x1, int y1, int x2, int y2, int color)
 {
 	int dx,dy,e;
@@ -302,7 +260,7 @@ void LCD_Line(int x1, int y1, int x2, int y2, int color)
 					x1+=1;
 					e+=dy;
 				}
-			} else {		// 2/8 octant
+			} else { // 2/8 octant
 				e=dx-dy/2;
 				while(y1<=y2) {
 					Put_Pixel(x1,y1,color);
@@ -311,8 +269,8 @@ void LCD_Line(int x1, int y1, int x2, int y2, int color)
 					e+=dx;
 				}
 			}
-		} else {		   // dy<0
-			dy=-dy;   // dy=abs(dy)
+		} else { // dy<0
+			dy=-dy; // dy=abs(dy)
 			if(dx>=dy) { // 8/8 octant
 				e=dy-dx/2;
 				while(x1<=x2) {
@@ -321,7 +279,7 @@ void LCD_Line(int x1, int y1, int x2, int y2, int color)
 					x1+=1;
 					e+=dy;
 				}
-			} else {		// 7/8 octant
+			} else { // 7/8 octant
 				e=dx-dy/2;
 				while(y1>=y2) {
 					Put_Pixel(x1,y1,color);
@@ -331,8 +289,8 @@ void LCD_Line(int x1, int y1, int x2, int y2, int color)
 				}
 			}
 		}	
-	} else { //dx<0
-		dx=-dx;		//dx=abs(dx)
+	} else { // dx<0
+		dx=-dx; // dx=abs(dx)
 		if(dy >= 0) { // dy>=0
 			if(dx>=dy) { // 4/8 octant
 				e=dy-dx/2;
@@ -342,7 +300,7 @@ void LCD_Line(int x1, int y1, int x2, int y2, int color)
 					x1-=1;
 					e+=dy;
 				}
-			} else {		// 3/8 octant
+			} else { // 3/8 octant
 				e=dx-dy/2;
 				while(y1<=y2) {
 					Put_Pixel(x1,y1,color);
@@ -351,8 +309,8 @@ void LCD_Line(int x1, int y1, int x2, int y2, int color)
 					e+=dx;
 				}
 			}
-		} else {		   // dy<0
-			dy=-dy;   // dy=abs(dy)
+		} else { // dy<0
+			dy=-dy; // dy=abs(dy)
 			if(dx>=dy) { // 5/8 octant
 				e=dy-dx/2;
 				while(x1>=x2) {
@@ -361,7 +319,7 @@ void LCD_Line(int x1, int y1, int x2, int y2, int color)
 					x1-=1;
 					e+=dy;
 				}
-			} else {		// 6/8 octant
+			} else { // 6/8 octant
 				e=dx-dy/2;
 				while(y1>=y2) {
 					Put_Pixel(x1,y1,color);
@@ -374,33 +332,23 @@ void LCD_Line(int x1, int y1, int x2, int y2, int color)
 	}
 }
 
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 												 [ TFT_CLR ]																   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
+/* TFT_CLR */
 void TFT_CLR(unsigned int k)
 {
 	int i, j;
 	
-	if(k) {			// Clear Buffer 1
+	if(k) { // Clear Buffer 1
 		for(i=0;i<LCD_XSIZE;i++)
 	 		for(j=0;j<LCD_YSIZE;j++)
 	 			Put_Pixel_back(i,j,0x0);
-	} else {		// Clear Buffer 0
+	} else { // Clear Buffer 0
 		for(i=0;i<LCD_XSIZE;i++)
 	 		for(j=0;j<LCD_YSIZE;j++)
 	 			Put_Pixel(i,j,0x000000);
 	}
 }
 
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 												 [ TFT_Intro ]																   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
+/* TFT_Intro */
 void TFT_Intro(void)
 {
 	int i,j;
@@ -419,13 +367,7 @@ void TFT_Intro(void)
 	}
 }
 
-/*
-
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 													 [ LOGO ]																   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
+/* LOGO */
 void LCD_LOGO(void)
 {
 	lputs(123, 138, 0xff00, "SangMyung University");
@@ -440,39 +382,34 @@ void LCD_LOGO(void)
 //	lputs(123, 266, 0xff00, "");
 }
 
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃				 											 [ LCD_SQUARE ]															   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
-
-/*아래 함수는 LCD에 아웃라인을 그려주는 함수로써 형광초록색을 나타냅니다.*/
+/* LCD_SQUARE */
+/* 아래 함수는 LCD에 아웃라인을 그려주는 함수로써 형광초록색을 나타냅니다. */
 void LCD_SQUARE(void)
 {
 LCD_Line(1, 1, 1, 272, green); // 상단
-LCD_Line(1, 1, 480, 1, green); //좌측
-LCD_Line(479, 1, 479, 272, green); //우측
-LCD_Line(1, 271, 479, 271, green); //하단
+LCD_Line(1, 1, 480, 1, green); // 좌측
+LCD_Line(479, 1, 479, 272, green); // 우측
+LCD_Line(1, 271, 479, 271, green); // 하단
 
-LCD_Line(240,1,240,136,green);//세로줄
-LCD_Line(120,1,120,272,green);//세로줄
-LCD_Line(360,1,360,136,green);//세로줄
-LCD_Line(290,136,290,272,green);//세로줄
-LCD_Line(1,136,480,136,green);//가로줄
+LCD_Line(240,1,240,136,green); // 세로줄
+LCD_Line(120,1,120,272,green); // 세로줄
+LCD_Line(360,1,360,136,green); // 세로줄
+LCD_Line(290,136,290,272,green); // 세로줄
+LCD_Line(1,136,480,136,green); // 가로줄
 }
 
 void LCD_TIMER_Select( int n)
 {
-//int i; //좌표 선택을 위한 변수
-int x,y;//좌표 이동을 위한 변수
-int f; //for loop를 위한 변수
+// int i; //좌표 선택을 위한 변수
+int x,y; // 좌표 이동을 위한 변수
+int f; // for loop를 위한 변수
 		switch(n){
 				case 1:
 					x=0; y=0;
 					f=60;
 					while(f<121){
-					LCD_Line(x+60,y+68,x+f,y+2,green);		//1키기		
-					LCD_Line(x+60,y+68,x+f,y+2,green);				//1끄기
+					LCD_Line(x+60,y+68,x+f,y+2,green); // 1켜기		
+					LCD_Line(x+60,y+68,x+f,y+2,green); // 1끄기
 					f+=7;
 					}
 					f=9;
@@ -511,8 +448,8 @@ int f; //for loop를 위한 변수
 					x=120;y=0;
 					f=60;
 					while(f<121){
-					LCD_Line(x+60,y+68,x+f,y+2,yellow);		//1키기		
-					LCD_Line(x+60,y+68,x+f,y+2,yellow);				//1끄기
+					LCD_Line(x+60,y+68,x+f,y+2,yellow); // 1켜기		
+					LCD_Line(x+60,y+68,x+f,y+2,yellow); // 1끄기
 					f+=7;
 					}
 					f=9;
@@ -551,8 +488,8 @@ int f; //for loop를 위한 변수
 					x=240;y=0;
 					f=60;
 					while(f<121){
-					LCD_Line(x+60,y+68,x+f,y+2,red);		//1키기		
-					LCD_Line(x+60,y+68,x+f,y+2,red);				//1끄기
+					LCD_Line(x+60,y+68,x+f,y+2,red); // 1켜기		
+					LCD_Line(x+60,y+68,x+f,y+2,red); // 1끄기
 					f+=7;
 					}
 					f=9;
@@ -591,8 +528,8 @@ int f; //for loop를 위한 변수
 					x=360; y=0;
 					f=60;
 			while(f<121){
-					LCD_Line(x+60,y+68,x+f,y+2,yellow);		//1키기		
-					LCD_Line(x+60,y+68,x+f,y+2,yellow);				//1끄기
+					LCD_Line(x+60,y+68,x+f,y+2,yellow); // 1켜기		
+					LCD_Line(x+60,y+68,x+f,y+2,yellow); // 1끄기
 					f+=7;
 					}
 					f=9;
@@ -631,8 +568,8 @@ int f; //for loop를 위한 변수
 					x=0; y=135;
 					f=60;
 					while(f<121){
-					LCD_Line(x+60,y+68,x+f,y+2,green);		//1키기		
-					LCD_Line(x+60,y+68,x+f,y+2,green);				//1끄기
+					LCD_Line(x+60,y+68,x+f,y+2,green); // 1켜기		
+					LCD_Line(x+60,y+68,x+f,y+2,green); // 1끄기
 					f+=7;
 					}
 					f=9;

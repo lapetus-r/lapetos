@@ -21,11 +21,7 @@ void (*Put_Pixel)(unsigned int x, unsigned int y, int color) = TFT0_24BITPutPixe
 // Background Frame Buffer
 void (*Put_Pixel_back)(unsigned int x, unsigned int y, int color) = TFT1_24BITPutPixel;
 
-/*
-����������������������������������������������������������������������������������������������
-��				 												 [ TFTLCD_Init ]															   ��
-����������������������������������������������������������������������������������������������
-*/
+/* TFTLCD_Init */
 void TFTLCD_Init(unsigned int bit)
 {
 	unsigned char clkval=0;
@@ -34,14 +30,13 @@ void TFTLCD_Init(unsigned int bit)
 	if((bit != TFT_24BIT) && (bit != TFT_16BIT)) return;
 	tft_bit = bit;
 	
-	MISCCR |= (1<<28);		// TFT LCD Control En
-	GPCCON = 0xaaaaaaaa;	// CTRL, VD[7:0]
-	GPDCON = 0xaaaaaaaa;	// VD[23:8]
-	
+	MISCCR |= (1<<28); // TFT LCD Control En
+	GPCCON = 0xaaaaaaaa; // CTRL, VD[7:0]
+	GPDCON = 0xaaaaaaaa; // VD[23:8]
 	
 	// BackLight �κ� �̱���..
-	GPBCON = (GPBCON & ~(3<<6)) | (1<<6);	// Backlight PWM Control (GPB3)
-	GPBCON = (GPBCON & ~(3<<6)) | (2<<6);	// Backlight PWM Control (TOUT3)
+	GPBCON = (GPBCON & ~(3<<6)) | (1<<6); // Backlight PWM Control (GPB3)
+	GPBCON = (GPBCON & ~(3<<6)) | (2<<6); // Backlight PWM Control (TOUT3)
 	GPBDAT |= (1<<3);
 	
 	GPGCON = (GPGCON & ~(3<<8)) | (1<<8); // LCD_PWRDN (GPG4)
@@ -59,7 +54,7 @@ void TFTLCD_Init(unsigned int bit)
 	switch(tft_bit) {
 	case TFT_16BIT:
 		pagewidth_in_byte = LCD_XSIZE / 8 * 16;
-		WINCON0 = WINCONx_HALFW_SWAP_ON|WINCONx_4WORD_BURST|WINCONx_16BPP_565; //  inverse halfword, 4word burst, 16bpp,
+		WINCON0 = WINCONx_HALFW_SWAP_ON|WINCONx_4WORD_BURST|WINCONx_16BPP_565; // inverse halfword, 4word burst, 16bpp,
 		break;
 	case TFT_24BIT:
 	default:
@@ -71,7 +66,7 @@ void TFTLCD_Init(unsigned int bit)
 	TFT_SWITCH(0);
 	
 	VIDOSD0A = (0<<VIDOSDxAB_HORIZON_X_S)|(0<<VIDOSDxAB_VERTICAL_Y_S); // OSD LEFT TOP PIXEL
-	VIDOSD0B = ((MTF430_XSIZE-1)<<VIDOSDxAB_HORIZON_X_S)|((MTF430_YSIZE-1)<<VIDOSDxAB_VERTICAL_Y_S);//OSD RIGHT BOTTOM PIXEL 	
+	VIDOSD0B = ((MTF430_XSIZE-1)<<VIDOSDxAB_HORIZON_X_S)|((MTF430_YSIZE-1)<<VIDOSDxAB_VERTICAL_Y_S); // OSD RIGHT BOTTOM PIXEL 	
 
 	lcd_framebuffer = (unsigned int *)LCD_WIN0_FRAME_BUFFER0;
 	
@@ -88,16 +83,12 @@ void TFTLCD_Init(unsigned int bit)
 
 	WIN0MAP = 0;
 	VIDCON0 |= 0x03; // ENVID On using Per Frame method
-  WINCON0 |= 0x01; //LCD ON
+  WINCON0 |= 0x01; // LCD ON
 
 	LCD_ON;
 }
 
-/*
-����������������������������������������������������������������������������������������������
-��														 [  TFT0_16BITPutPixel ]										   				   ��
-����������������������������������������������������������������������������������������������
-*/
+/* TFT0_16BITPutPixel */
 void TFT0_16BITPutPixel(unsigned int x,unsigned int y,int color)
 {
 	if(x<LCD_XSIZE && y< LCD_YSIZE) {
@@ -106,11 +97,7 @@ void TFT0_16BITPutPixel(unsigned int x,unsigned int y,int color)
 	}
 }
 
-/*
-����������������������������������������������������������������������������������������������
-��														 [  TFT1_16BITPutPixel ]										   				   ��
-����������������������������������������������������������������������������������������������
-*/
+/* TFT1_16BITPutPixel */
 void TFT1_16BITPutPixel(unsigned int x,unsigned int y,int color)
 {
 	if(x<LCD_XSIZE && y< LCD_YSIZE) {
@@ -119,32 +106,20 @@ void TFT1_16BITPutPixel(unsigned int x,unsigned int y,int color)
 	}
 }
 
-/*
-����������������������������������������������������������������������������������������������
-��														 [  TFT0_24BITPutPixel ]										   				   ��
-����������������������������������������������������������������������������������������������
-*/
+/* TFT0_24BITPutPixel */
 void TFT0_24BITPutPixel(unsigned int x,unsigned int y,int color)
 {
 	if(x<LCD_XSIZE && y< LCD_YSIZE)
 		*(lcd_framebuffer + x + (y * LCD_XSIZE)) = color;
 }
 
-/*
-����������������������������������������������������������������������������������������������
-��														 [  TFT1_24BITPutPixel ]										   				   ��
-����������������������������������������������������������������������������������������������
-*/
+/* TFT1_24BITPutPixel */
 void TFT1_24BITPutPixel(unsigned int x,unsigned int y,int color)
 {
 	if(x<LCD_XSIZE && y< LCD_YSIZE)
 		*(lcd_framebuffer1 + x + (y * LCD_XSIZE)) = color;
 }
-/*
-����������������������������������������������������������������������������������������������
-��															 [  TFT_SWITCH ]											   				   		��
-����������������������������������������������������������������������������������������������
-*/
+/* TFT_SWITCH */
 void TFT_SWITCH(unsigned int x)
 {
 	switch(x) {
