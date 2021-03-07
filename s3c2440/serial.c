@@ -24,9 +24,8 @@ static volatile Word *UART = UART2_BASE; // UART ���̽� ��巹��
 #endif                                              		
 #define UART_BAUD		((volatile Word) UART[10])  		//  Baud rate divisor register
 
-// ���� : �ø��� ����̽��� �� ���ڸ� ������. 
-
-void SerialOutChar( const char c  )
+/* SerialOutChar */
+void SerialOutChar( const char c )
 {
 	// ���� �����Ҷ����� ��ٸ���. 
 	//Wait until THR is empty.
@@ -36,47 +35,39 @@ void SerialOutChar( const char c  )
 	UART_TXD = c;
 }
 
-// ���� : �ø��� ����̽��� �� ���ڸ� ������. 
-
-void SerialOutChar_CheckCR( const char c  )
+/* SerialOutChar_CheckCR */
+void SerialOutChar_CheckCR( const char c )
 {
 	SerialOutChar( c );
 	if(c == '\n') SerialOutChar('\r');
 }
 
-// ���� : �ø��� ����̽��� ���ڿ��� ������. 
-
+/* SerialOutStr */
 int SerialOutStr( char *str, int size )
 {
 	int	lp ;
-
 	for (lp=0;lp<size;lp++) SerialOutChar(str[lp]) ;
 
 	return lp;
 }
 
-// ���� : �ø��� ����̽��� ���ڿ��� ������. 
-
+/* printf */
 int SerialOutStr_CheckCR( char *str, int size )
 {
 	int	lp ;
-
 	for (lp=0;lp<size;lp++) SerialOutChar_CheckCR(str[lp]) ;
 
 	return lp;
 }
 
-// ���� : �ø��� ����̽����� ���ŵ� ����Ÿ�� �ִ��� Ȯ���Ѵ�. 
-
+/* printf */
 int SerialIsReadyChar( void )
 {
-	// ���ŵ� ����Ÿ�� �ִ°��� Ȯ���Ѵ�. 	
 	if( UART_TRxSTAT & UTRxSTAT_RX_BUFF_REAYD) return 1;
 	return 0;
 }
 
-// ���� : �ø��� ����̽����� ����Ÿ�� �о� �´�. 
-
+/* printf */
 char SerialIsGetChar( void )
 {
     char RxData;
@@ -90,16 +81,14 @@ char SerialIsGetChar( void )
 	return RxData;
 }
 
-// ���� : �ø��� ����̽��� ���� ���� �ö�׸� Ŭ���� �Ѵ�. 
-
+/* printf */
 char SerialIsClearError( void )
 {
 	SerialErrorFlag = 0;
 	return (char)SerialErrorFlag;
 }
 
-// ���� : �ø��� ����̽��� ���� ���� �ö�� ���� ��´�. 
-
+/* printf */
 int SerialIsGetError( void )
 {
 	return SerialErrorFlag;
