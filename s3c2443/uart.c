@@ -1,10 +1,6 @@
 #include <include.h>
 
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃					 												 [ printf ]																   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
+/* printf */
 int printf(const char *fmt, ...)
 {
 	char buffer[1024];
@@ -18,21 +14,13 @@ int printf(const char *fmt, ...)
 	return len;
 }
 
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃					 												 [ putchar ]																   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
+/* putchar */
 void putchar(unsigned int ch)
 {
 	while(!(UTRSTAT1 &  0x2));
 	UTXH1 = (char)ch;
 }
-/*
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-┃					 												 [ getchar ]																   ┃
-╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋
-*/
+/* getchar */
 unsigned int getchar(void)
 {
 	unsigned int ch;
