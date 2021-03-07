@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-// ���� : ��ҹ��ڸ� ���� ������ ����� ���ڿ� �� 
-
+// ���� : ��ҹ��ڸ� ���� ������ ����� ���ڿ� ��
 int strnicmp(const char *s1, const char *s2, size_t len)
 {
 	unsigned char c1, c2;
@@ -28,8 +27,7 @@ int strnicmp(const char *s1, const char *s2, size_t len)
 
 char * ___strtok;
 
-// ���� : ���ڿ� ���� 
-
+// ���� : ���ڿ� ����
 char * strcpy(char * dest,const char *src)
 {
 	char *tmp = dest;
@@ -39,8 +37,7 @@ char * strcpy(char * dest,const char *src)
 	return tmp;
 }
 
-// ���� : ���ڿ� ���� 
-
+// ���� : ���ڿ� ����
 char * strncpy(char * dest,const char *src,size_t count)
 {
 	char *tmp = dest;
@@ -51,8 +48,7 @@ char * strncpy(char * dest,const char *src,size_t count)
 	return tmp;
 }
 
-// ���� : ���ڿ� �߰� 
-
+// ���� : ���ڿ� �߰�
 char * strcat(char * dest, const char * src)
 {
 	char *tmp = dest;
@@ -65,8 +61,7 @@ char * strcat(char * dest, const char * src)
 	return tmp;
 }
 
-// ���� : ���ڿ� �߰� 
-
+// ���� : ���ڿ� �߰�
 char * strncat(char *dest, const char *src, size_t count)
 {
 	char *tmp = dest;
@@ -85,8 +80,7 @@ char * strncat(char *dest, const char *src, size_t count)
 	return tmp;
 }
 
-// ���� : ���ڿ� �� 
-
+// ���� : ���ڿ� ��
 int strcmp(const char * cs,const char * ct)
 {
 	register signed char __res;
@@ -99,8 +93,7 @@ int strcmp(const char * cs,const char * ct)
 	return __res;
 }
 
-// ���� : ���ڿ� �� 
-
+// ���� : ���ڿ� ��
 int strncmp(const char * cs,const char * ct,size_t count)
 {
 	register signed char __res = 0;
@@ -114,8 +107,7 @@ int strncmp(const char * cs,const char * ct,size_t count)
 	return __res;
 }
 
-// ���� : ���ڿ��ӿ��� ���ڸ� �߰��Ѵ�. 
-
+// ���� : ���ڿ��ӿ��� ���ڸ� �߰��Ѵ�.
 char * strchr(const char * s, int c)
 {
 	for(; *s != (char) c; ++s)
@@ -124,8 +116,7 @@ char * strchr(const char * s, int c)
 	return (char *) s;
 }
 
-// ���� : ���ڿ��� ���̸� ��ȯ�Ѵ�. 
-
+// ���� : ���ڿ��� ���̸� ��ȯ�Ѵ�.
 size_t strlen(const char * s)
 {
 	const char *sc;
@@ -135,8 +126,7 @@ size_t strlen(const char * s)
 	return sc - s;
 }
 
-// ���� : ���ڿ��ӿ��� ���ڸ� �߰��Ѵ�. 
-
+// ���� : ���ڿ��ӿ��� ���ڸ� �߰��Ѵ�.
 char * strrchr(const char * s, int c)
 {
        const char *p = s + strlen(s);
@@ -147,8 +137,7 @@ char * strrchr(const char * s, int c)
        return NULL;
 }
 
-// ���� : ���ڿ��� ���̸� ��ȯ�Ѵ�. 
-
+// ���� : ���ڿ��� ���̸� ��ȯ�Ѵ�.
 size_t strnlen(const char * s, size_t count)
 {
 	const char *sc;
@@ -158,8 +147,7 @@ size_t strnlen(const char * s, size_t count)
 	return sc - s;
 }
 
-// ���� : ���ڿ��� ���� ������ �� �Ѵ�. 
-
+// ���� : ���ڿ��� ���� ������ �� �Ѵ�.
 size_t strspn(const char *s, const char *accept)
 {
 	const char *p;
@@ -179,8 +167,7 @@ size_t strspn(const char *s, const char *accept)
 	return count;
 }
 
-// ���� : ���� ���ڸ� �˻��Ѵ�. 
-
+// ���� : ���� ���ڸ� �˻��Ѵ�.
 char * strpbrk(const char * cs,const char * ct)
 {
 	const char *sc1,*sc2;
@@ -194,8 +181,7 @@ char * strpbrk(const char * cs,const char * ct)
 	return NULL;
 }
 
-// ���� : ��ū ���ڸ� �����Ѵ�. 
-
+// ���� : ��ū ���ڸ� �����Ѵ�.
 char * strtok(char * s,const char * ct)
 {
 	char *sbegin, *send;
@@ -216,8 +202,7 @@ char * strtok(char * s,const char * ct)
 	return (sbegin);
 }
 
-// ���� : ���ڿ����� ��ū�� �����Ѵ�. 
-
+// ���� : ���ڿ����� ��ū�� �����Ѵ�.
 char * strsep(char **s, const char *ct)
 {
 	char *sbegin = *s, *end;
@@ -233,8 +218,7 @@ char * strsep(char **s, const char *ct)
 	return sbegin;
 }
 
-// ���� : �޸� ������ Ư�� ���� ä���. 
-
+// ���� : �޸� ������ Ư�� ���� ä���.
 void * memset(void * s,int c,size_t count)
 {
 	char *xs = (char *) s;
@@ -245,8 +229,7 @@ void * memset(void * s,int c,size_t count)
 	return s;
 }
 
-// ���� : �޸� ������ �����Ѵ�. 
-
+// ���� : �޸� ������ �����Ѵ�.
 char * bcopy(const char * src, char * dest, int count)
 {
 	char *tmp = dest;
@@ -257,8 +240,7 @@ char * bcopy(const char * src, char * dest, int count)
 	return dest;
 }
 
-// ���� : �޸� ������ �����Ѵ�. 
-
+// ���� : �޸� ������ �����Ѵ�.
 void * memcpy(void * dest,const void *src,size_t count)
 {
 	char *tmp = (char *) dest, *s = (char *) src;
@@ -269,8 +251,7 @@ void * memcpy(void * dest,const void *src,size_t count)
 	return dest;
 }
 
-// ���� : �޸� ������ �����Ѵ�. 
-
+// ���� : �޸� ������ �����Ѵ�.
 void * memmove(void * dest,const void *src,size_t count)
 {
 	char *tmp, *s;
@@ -291,8 +272,7 @@ void * memmove(void * dest,const void *src,size_t count)
 	return dest;
 }
 
-// ���� : �޸� ������ ���Ѵ�. 
-
+// ���� : �޸� ������ ���Ѵ�.
 int memcmp(const void * cs,const void * ct,size_t count)
 {
 	const unsigned char *su1, *su2;
@@ -304,8 +284,7 @@ int memcmp(const void * cs,const void * ct,size_t count)
 	return res;
 }
 
-// ���� : �޸� �������� ���� Ž���Ѵ� 
-
+// ���� : �޸� �������� ���� Ž���Ѵ�
 void * memscan(void * addr, int c, size_t size)
 {
 	unsigned char * p = (unsigned char *) addr;
@@ -319,8 +298,7 @@ void * memscan(void * addr, int c, size_t size)
   	return (void *) p;
 }
 
-// ���� : ���ڿ����� �ٸ� ���ڿ��� Ž���Ѵ�. 
-
+// ���� : ���ڿ����� �ٸ� ���ڿ��� Ž���Ѵ�.
 char * strstr(const char * s1,const char * s2)
 {
 	int l1, l2;
@@ -338,8 +316,7 @@ char * strstr(const char * s1,const char * s2)
 	return NULL;
 }
 
-// ���� : �޸𸮿��� 1 ����Ʈ�� Ž���Ѵ�. 
-
+// ���� : �޸𸮿��� 1 ����Ʈ�� Ž���Ѵ�.
 void *memchr(const void *s, int c, size_t n)
 {
 	const unsigned char *p = s;
@@ -351,22 +328,19 @@ void *memchr(const void *s, int c, size_t n)
 	return NULL;
 }
 
-// ���� : �빮�� ���ڿ��� �ٲ۴�. 
-
+// ���� : �빮�� ���ڿ��� �ٲ۴�.
 void UpperStr( char *Str )
 {
    while( *Str ){ *Str = toupper( *Str ); Str++; }
 }
 
-// ���� : �ҹ��� ���ڿ��� �ٲ۴�. 
-
+// ���� : �ҹ��� ���ڿ��� �ٲ۴�.
 void LowerStr( char *Str )
 {
    while( *Str ){ *Str = tolower( *Str ); Str++; }
 }
 
-// ���� : ��ġ�� ���ڿ��� ���������� �ٲ۴�. 
-
+// ���� : ��ġ�� ���ڿ��� ���������� �ٲ۴�.
 unsigned long strtoul(const char *p, char **out_p, int base)
 {
 	unsigned long v = 0;
